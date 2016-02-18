@@ -1,1 +1,1 @@
-This folder will contain the source codes and support materials.
+This folder contains the source codes and sample data used.
