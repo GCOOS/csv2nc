@@ -38,13 +38,9 @@ cdftime = utime('hours since 1970-01-01 00:00:00')
 # were pre-generated before running this routine. This can also be made to receive
 # these input dynamically (i.e. as a passing paramter)
 prefix  = 'gcoos_ioos_station_USF_COMPS_C10_2015_11_atm'
-infiles = '/home/felimon/data/wraps/gcoos_ioos_station_USF_COMPS_C10_2015_11_atm.csv'
-outfile = 'gcoos_ioos_station_USF_COMPS_C10_2015_11_atm.nc'
-hdrfile = 'gcoos_ioos_station_USF_COMPS_C10_2015_11_atm.hdr'
-
-#  Array holding the identifying names for each of the timeseries files.
-timeseries_name = ['timeseries_1']
-#timeseries_name = ['timeseries_1','timeseries_2',...,'timeseries_n']
+infiles = prefix+'.csv'
+outfile = prefix+'.nc'
+hdrfile = prefix+'.hdr'
 
 ##########################################################################
 # the following will be extracted from a header file
