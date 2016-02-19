@@ -247,10 +247,10 @@ obs2.platform               = 'platform'
 obs2.instrument             = 'instrument'
 obs2.comment                = ''
 
-obs3                        = nc.createVariable('dew_point_tempearture','d',('time','timeSeries'),fill_value=-999.)
-obs3.long_name              = 'dew_point_tempearture'
-obs3.standard_name          = 'dew_point_tempearture'
-obs3.ncei_name              = 'dew_point_tempearture'
+obs3                        = nc.createVariable('dew_point_temperature','d',('time','timeSeries'),fill_value=-999.)
+obs3.long_name              = 'dew_point_temperature'
+obs3.standard_name          = 'dew_point_temperature'
+obs3.ncei_name              = 'dew_point_temperature'
 obs3.units                  = 'Celsius'
 obs3.scale_factor           = 1.
 obs3.add_offset             = 0.
