@@ -198,7 +198,7 @@ platform.ncei_code          = '147F, 3614'
 platform.wmo_code           = wmo
 platform.imo_code           = ''
 
-crs                         = nc.createVariable('crs','i')
+crs                         = nc.createVariable('crs','i',())
 crs.grid_mapping_name       = 'latitude_longitude'
 crs.epsg_code               = 'EPSG:4326'
 crs.semi_major_axis         = 6378137
