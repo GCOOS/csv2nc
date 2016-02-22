@@ -79,7 +79,7 @@ nc.featureType              = 'timeSeries'
 nc.title                    = 'GCOOS 2016-11 netCDF Data for '+urn
 nc.summary                  = '2016-11 time series data for '+urn+' platform served via GCOOS Data Portal. The uuid was generated using the uuid python module, invoking the command uuid.uuid4().'
 nc.keywords                 = 'GCOOS,ocean observing,sensors'
-nc.Conventions              = 'CF-1.6,ACDD-1.3'
+nc.Conventions              = 'CF Standard Name Table v26, GCMD Earth Science Keywords. Version 5.3.3'
 # the filename is a unique identification and will be used as the file id
 nc.id                       = prefix
 nc.naming_authority         = 'ioos:station:USF.COMPS'
