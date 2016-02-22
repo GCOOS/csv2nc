@@ -4,7 +4,7 @@
 
 #  Module      : generate_gcoos_nc_timeseries_atm.py
 #  Author      : Felimon Gayanilo (felimon.gayanilo@gcoos.org)
-#  Last update : 16 February 2016
+#  Last update : 22 February 2016
 
 #  Required    : numpy,netCDF4,netcdftime,sys,uuid,datetime
 #  Usage       : generate_gcoos_nc_timeseries_atm.py
