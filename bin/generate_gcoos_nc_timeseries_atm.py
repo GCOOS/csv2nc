@@ -179,6 +179,7 @@ z.long_name                 = "Altitude"
 z.standard_name             = "altitude"
 z.units                     = "m"
 z.axis                      = "Z"
+z.positive                  = "up"
 #z.valid_min                 = 0.0
 #z.valid_max                 = 0.0
 #z._FillValue                = fill_value=-999.
