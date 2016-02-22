@@ -380,7 +380,7 @@ for i in range(0,timeseries_length):
 
     time = cdftime.date2num(dateobj)
 
-    times[i] = time
+    times[i] = time*3600
 
     obs1[i] = data[i][2]
     obs2[i] = data[i][3]
