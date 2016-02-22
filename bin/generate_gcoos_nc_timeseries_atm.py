@@ -364,9 +364,9 @@ data = np.genfromtxt(infiles,dtype=[('date','S10'),('time','S8'),\
 ('relative_humidity','f8'),('wind_speed','f8'),('wind_speed_of_gust','f8'),\
 ('wind_to_direction','f8')],delimiter=",",skip_header=1)
 
-lon               = longitude
-lat               = latitude
-z                 = verticalPosition
+lon[:]               = longitude
+lat[:]               = latitude
+z[:]                 = verticalPosition
 
 for i in range(0,timeseries_length):
     year   = int(data[i][0].split('-')[0])
