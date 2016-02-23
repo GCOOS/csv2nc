@@ -48,6 +48,7 @@ prefix  = 'gcoos_ioos_station_USF_COMPS_C10_2015_11_atm'
 infiles = in_path+prefix+'.csv'
 outfile = out_path+prefix+'.nc'
 hdrfile = in_path+prefix+'.hdr'
+period  = '2015_11'
 
 # the following will be extracted from a header file
 # (prefix+'.hdr') but listed here for demonstration purposes only.
@@ -79,7 +80,7 @@ ts = nc.createDimension('timeSeries',1)
 # Add global attributes as per the template
 nc.ncei_template_version    = 'NCEI_NetCDF_TimeSeries_Orthogonal_Template_v2.0'
 nc.featureType              = 'timeSeries'
-nc.title                    = 'GCOOS 2016-11 netCDF Data for '+urn
+nc.title                    = 'GCOOS netCDF Data for '+urn+' for the period '+period
 nc.summary                  = '2016-11 time series data for '+urn+' platform served via GCOOS Data Portal. The uuid was generated using the uuid python module, invoking the command uuid.uuid4().'
 nc.keywords                 = 'GCOOS,ocean observing,sensors'
 nc.Conventions              = 'CF Standard Name Table v26, GCMD Earth Science Keywords. Version 5.3.3'
