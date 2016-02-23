@@ -34,18 +34,23 @@ dt=datetime.date(dtutcnow.year, dtutcnow.month, dtutcnow.day).isoformat()
 #  Set the base time for the NetCDF time variable.
 cdftime = utime('hours since 1970-01-01 00:00:00')
 
+##########################################################################
 # define the in/out files to use. It is assumed here that the CSV and HDR files
 # were pre-generated before running this routine. This can also be made to receive
-# these input dynamically (i.e. as a passing paramter)
-prefix  = 'gcoos_ioos_station_USF_COMPS_C10_2015_11_atm'
-infiles = prefix+'.csv'
-outfile = prefix+'.nc'
-hdrfile = prefix+'.hdr'
+# these input dynamically (i.e. as a passing paramter; recommended).
 
-##########################################################################
+# be specific to where the file is, e.g. path ='/var/www/html/data/' if the output
+# file is to be generated/stored in that path.
+
+out_path = ''
+in_path = ''                   
+prefix  = 'gcoos_ioos_station_USF_COMPS_C10_2015_11_atm'
+infiles = in_path+prefix+'.csv'
+outfile = out_path+prefix+'.nc'
+hdrfile = in_path+prefix+'.hdr'
+
 # the following will be extracted from a header file
-# gcoos_ioos_station_USF_COMPS_C10_2015_11_atm.hdr but listed here for
-# simplification.
+# (prefix+'.hdr') but listed here for demonstration purposes only.
 
 urn               = 'ioos:station:USF.COMPS:C10'
 url               = 'http://comps.marine.usf.edu/'
@@ -57,16 +62,12 @@ longitude         =-82.9260
 verticalPosition  = 3.0
 timeseries_length = 1110
 
-# bespecific to where the file is, e.g. path ='/var/www/html/data/' if the output
-# file is to be generated/stored in that path.
-path              = ''
 ##########################################################################
 
 file = outfile
 print 'Please wait, generating %s...\n' % file
 
-#file = path,outfile
-# NCEI supports on the nstCDF4 classic (as of 2016-01-31)
+# NCEI supports on the netCDF4 classic (as of 2016-01-31)
 nc = netCDF4.Dataset(file,'w',format='NETCDF4_CLASSIC')
 
 # create dimensions
