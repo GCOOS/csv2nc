@@ -191,42 +191,6 @@ z.positive                  = "down"
 z.ancillary_variables       = ""
 z.comment                   = ""
 
-z1                           = nc.createVariable('z1','d',('timeSeries'),fill_value=-999.)
-z1.long_name                 = "Depth"
-z1.standard_name             = "depth"
-z1.units                     = "m"
-z1.axis                      = "Z"
-z1.positive                  = "down"
-#z1.valid_min                 = 0.0
-#z1.valid_max                 = 0.0
-#z1._FillValue                = fill_value=-999.
-z1.ancillary_variables       = ""
-z1.comment                   = ""
-
-z2                           = nc.createVariable('z2','d',('timeSeries'),fill_value=-999.)
-z2.long_name                 = "Depth"
-z2.standard_name             = "depth"
-z2.units                     = "m"
-z2.axis                      = "Z"
-z2.positive                  = "down"
-#z2.valid_min                 = 0.0
-#z2.valid_max                 = 0.0
-#z2._FillValue                = fill_value=-999.
-z2.ancillary_variables       = ""
-z2.comment                   = ""
-
-z3                           = nc.createVariable('z3','d',('timeSeries'),fill_value=-999.)
-z3.long_name                 = "Depth"
-z3.standard_name             = "depth"
-z3.units                     = "m"
-z3.axis                      = "Z"
-z3.positive                  = "down"
-#z3.valid_min                 = 0.0
-#z3.valid_max                 = 0.0
-#z3._FillValue                = fill_value=-999.
-z3.ancillary_variables       = ""
-z3.comment                   = ""
-
 instrument                 = nc.createVariable('instrument','c',('timeSeries'))
 instrument.long_name       = instrument
 instrument.comment         = instrument_desc
@@ -256,12 +220,12 @@ obs1.add_offset             = 0.
 obs1.missing_value          = -999.
 obs1.valid_min              = 0.
 obs1.valid_max              = 30.
-obs1.coordinates            = 'time lat lon z1'
+obs1.coordinates            = 'time lat lon z'
 obs1.coverage_content_type  = 'physicalMeasurement'
 obs1.grid_mapping           = 'crs'
 obs1.source                 = 'GCOOS LDN upload/SOS.'
 obs1.references             = url
-obs1.cell_methods           = 'time: point lat: point lon: point z1: point'
+obs1.cell_methods           = 'time: point lat: point lon: point z: point'
 obs1.ancillary_variables    = 'instrument platform'
 obs1.platform               = 'platform'
 obs1.instrument             = 'instrument'
@@ -278,12 +242,12 @@ obs2.add_offset             = 0.
 obs2.missing_value          = -999.
 obs2.valid_min              = 0.
 obs2.valid_max              = 360.
-obs2.coordinates            = 'time lat lon z1'
+obs2.coordinates            = 'time lat lon z'
 obs2.coverage_content_type  = 'physicalMeasurement'
 obs2.grid_mapping           = 'crs'
 obs2.source                 = 'GCOOS LDN upload/SOS.'
 obs2.references             = url
-obs2.cell_methods           = 'time: point lat: point lon: point z1: point'
+obs2.cell_methods           = 'time: point lat: point lon: point z: point'
 obs2.ancillary_variables    = 'instrument platform'
 obs2.platform               = 'platform'
 obs2.instrument             = 'instrument'
@@ -300,12 +264,12 @@ obs3.add_offset             = 0.
 obs3.missing_value          = -999.
 obs3.valid_min              = 0.
 obs3.valid_max              = 30.
-obs3.coordinates            = 'time lat lon z1'
+obs3.coordinates            = 'time lat lon z'
 obs3.coverage_content_type  = 'physicalMeasurement'
 obs3.grid_mapping           = 'crs'
 obs3.source                 = 'GCOOS LDN upload/SOS.'
 obs3.references             = url
-obs3.cell_methods           = 'time: point lat: point lon: point z1: point'
+obs3.cell_methods           = 'time: point lat: point lon: point z: point'
 obs3.ancillary_variables    = 'instrument platform'
 obs3.platform               = 'platform'
 obs3.instrument             = 'instrument'
@@ -322,12 +286,12 @@ obs4.add_offset             = 0.
 obs4.missing_value          = -999.
 obs4.valid_min              = 0.
 obs4.valid_max              = 30.
-obs4.coordinates            = 'time lat lon z1'
+obs4.coordinates            = 'time lat lon z'
 obs4.coverage_content_type  = 'physicalMeasurement'
 obs4.grid_mapping           = 'crs'
 obs4.source                 = 'GCOOS LDN upload/SOS.'
 obs4.references             = url
-obs4.cell_methods           = 'time: point lat: point lon: point z1: point'
+obs4.cell_methods           = 'time: point lat: point lon: point z: point'
 obs4.ancillary_variables    = 'instrument platform'
 obs4.platform               = 'platform'
 obs4.instrument             = 'instrument'
@@ -344,12 +308,12 @@ obs5.add_offset             = 0.
 obs5.missing_value          = -999.
 obs5.valid_min              = 0.
 obs5.valid_max              = 30.
-obs5.coordinates            = 'time lat lon z1'
+obs5.coordinates            = 'time lat lon z'
 obs5.coverage_content_type  = 'physicalMeasurement'
 obs5.grid_mapping           = 'crs'
 obs5.source                 = 'GCOOS LDN upload/SOS.'
 obs5.references             = url
-obs5.cell_methods           = 'time: point lat: point lon: point z1: point'
+obs5.cell_methods           = 'time: point lat: point lon: point z: point'
 obs5.ancillary_variables    = 'instrument platform'
 obs5.platform               = 'platform'
 obs5.instrument             = 'instrument'
@@ -366,12 +330,12 @@ obs6.add_offset             = 0.
 obs6.missing_value          = -999.
 obs6.valid_min              = 0.
 obs6.valid_max              = 500.
-obs6.coordinates            = 'time lat lon'
+obs6.coordinates            = 'time lat lon z'
 obs6.coverage_content_type  = 'physicalMeasurement'
 obs6.grid_mapping           = 'crs'
 obs6.source                 = 'GCOOS LDN upload/SOS.'
 obs6.references             = url
-obs6.cell_methods           = 'time: point lat: point lon: point'
+obs6.cell_methods           = 'time: point lat: point lon: point z: point'
 obs6.ancillary_variables    = 'instrument platform'
 obs6.platform               = 'platform'
 obs6.instrument             = 'instrument'
@@ -388,12 +352,12 @@ obs7.add_offset             = 0.
 obs7.missing_value          = -999.
 obs7.valid_min              = 0.
 obs7.valid_max              = 20.
-obs7.coordinates            = 'time lat lon'
+obs7.coordinates            = 'time lat lon z'
 obs7.coverage_content_type  = 'physicalMeasurement'
 obs7.grid_mapping           = 'crs'
 obs7.source                 = 'GCOOS LDN upload/SOS.'
 obs7.references             = url
-obs7.cell_methods           = 'time: point lat: point lon: point'
+obs7.cell_methods           = 'time: point lat: point lon: point z: point'
 obs7.ancillary_variables    = 'instrument platform'
 obs7.platform               = 'platform'
 obs7.instrument             = 'instrument'
@@ -410,12 +374,12 @@ obs8.add_offset             = 0.
 obs8.missing_value          = -999.
 obs8.valid_min              = -10.
 obs8.valid_max              = 10.
-obs8.coordinates            = 'time lat lon'
+obs8.coordinates            = 'time lat lon z'
 obs8.coverage_content_type  = 'physicalMeasurement'
 obs8.grid_mapping           = 'crs'
 obs8.source                 = 'GCOOS LDN upload/SOS.'
 obs8.references             = url
-obs8.cell_methods           = 'time: point lat: point lon: point'
+obs8.cell_methods           = 'time: point lat: point lon: point z: point'
 obs8.ancillary_variables    = 'instrument platform'
 obs8.platform               = 'platform'
 obs8.instrument             = 'instrument'
@@ -432,12 +396,12 @@ obs9.add_offset             = 0.
 obs9.missing_value          = -999.
 obs9.valid_min              = 0.
 obs9.valid_max              = 38.
-obs9.coordinates            = 'time lat lon z2'
+obs9.coordinates            = 'time lat lon z'
 obs9.coverage_content_type  = 'physicalMeasurement'
 obs9.grid_mapping           = 'crs'
 obs9.source                 = 'GCOOS LDN upload/SOS.'
 obs9.references             = url
-obs9.cell_methods           = 'time: point lat: point lon: point z2: point'
+obs9.cell_methods           = 'time: point lat: point lon: point z: point'
 obs9.ancillary_variables    = 'instrument platform'
 obs9.platform               = 'platform'
 obs9.instrument             = 'instrument'
@@ -454,12 +418,12 @@ obs10.add_offset             = 0.
 obs10.missing_value          = -999.
 obs10.valid_min              = -10.
 obs10.valid_max              = 35.
-obs10.coordinates            = 'time lat lon z3'
+obs10.coordinates            = 'time lat lon z'
 obs10.coverage_content_type  = 'physicalMeasurement'
 obs10.grid_mapping           = 'crs'
 obs10.source                 = 'GCOOS LDN upload/SOS.'
 obs10.references             = url
-obs10.cell_methods           = 'time: point lat: point lon: point z3: point'
+obs10.cell_methods           = 'time: point lat: point lon: point z: point'
 obs10.ancillary_variables    = 'instrument platform'
 obs10.platform               = 'platform'
 obs10.instrument             = 'instrument'
@@ -476,12 +440,12 @@ obs11.add_offset             = 0.
 obs11.missing_value          = -999.
 obs11.valid_min              = 400.
 obs11.valid_max              = 680.
-obs11.coordinates            = 'time lat lon'
+obs11.coordinates            = 'time lat lon z'
 obs11.coverage_content_type  = 'physicalMeasurement'
 obs11.grid_mapping           = 'crs'
 obs11.source                 = 'GCOOS LDN upload/SOS.'
 obs11.references             = url
-obs11.cell_methods           = 'time: point lat: point lon: point'
+obs11.cell_methods           = 'time: point lat: point lon: point z: point'
 obs11.ancillary_variables    = 'instrument platform'
 obs11.platform               = 'platform'
 obs11.instrument             = 'instrument'
@@ -496,12 +460,10 @@ data = np.genfromtxt(infiles,dtype=[('date','S10'),('time','S8'),\
 ('mole_concentration_of_dissolved_oxygen_in_sea_water','f8'),\
 ('sea_surface_height_above_sea_level','f8'),('sea_water_practical_salinity','f8'),\
 ('sea_water_temperature','f8'),('sea_water_turbidity','f8'),\
-('currents_depth','f8'),('salinity_depth','f8'),\
-('water_temperature_depth','f8')],delimiter=",",skip_header=1)
+('depth','f8')],delimiter=",",skip_header=1)
 
 lon[:]               = longitude
 lat[:]               = latitude
-z[:]                 = verticalPosition
 
 for i in range(0,timeseries_length):
     year   = int(data[i][0].split('-')[0])
@@ -516,6 +478,7 @@ for i in range(0,timeseries_length):
     time = cdftime.date2num(dateobj)
 
     times[i] = time*3600
+    z[i] = data[i][13]
 
     obs1[i] = data[i][2]
     obs2[i] = data[i][3]
@@ -528,8 +491,5 @@ for i in range(0,timeseries_length):
     obs9[i] = data[i][10]
     obs10[i] = data[i][11]
     obs11[i] = data[i][12]
-    z1[i] = data[i][13]
-    z2[i] = data[i][14]
-    z3[i] = data[i][15]
 
 nc.close()
