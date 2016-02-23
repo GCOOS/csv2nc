@@ -56,6 +56,8 @@ urn               = 'ioos:station:USF.COMPS:C10'
 url               = 'http://comps.marine.usf.edu/'
 description       = 'C10: Navy-2'
 naming            = 'ioos:station:USF.COMPS'
+instrument        = 'RM Young 61202V, RM Young 41372VC/Analog 1 V Single'
+instrument_desc   = 'Atmospheric probe and wind sensor'
 wmo               = '42013'
 latitude          = 27.1690
 longitude         =-82.9260
@@ -188,8 +190,8 @@ z.ancillary_variables       = ""
 z.comment                   = ""
 
 instrument                 = nc.createVariable('instrument','c',('timeSeries'))
-instrument.long_name       = 'RM Young 61202V, RM Young 41372VC/Analog 1 V Single'
-instrument.comment         = 'Atmospheric probe and wind sensor'
+instrument.long_name       = instrument
+instrument.comment         = instrument_desc
 
 platform                    = nc.createVariable('platform','c',('timeSeries'))
 platform.long_name          = urn,' ',description
