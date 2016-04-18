@@ -54,7 +54,7 @@ period  = '2015_06'
 # the following will be extracted from a header file
 # (prefix+'.hdr') but listed here for demonstration purposes only.
 
-urn               = 'ioos:station:DISL:BSCA'
+urn               = 'urn:ioos:station:DISL:BSCA'
 url               = 'http://www.mymobilebay.com/stationdata/StationInfo.asp?jday=&property=&chartyear=&StationID=106'
 description       = 'Station Bon Secour, LA'
 naming            = 'ioos:station:DISL'
@@ -370,10 +370,7 @@ Try:
     ('relative_humidity','f8'),('wind_speed','f8'),('wind_speed_of_gust','f8'),\
     ('wind_to_direction','f8')],delimiter=",",skip_header=1)
     
-    lon[:]               = longitude
-    lat[:]               = latitude
-    z[:]                 = verticalPosition
-    
+
     for i in range(0,timeseries_length):
         year   = int(data[i][0].split('-')[0])
         month  = int(data[i][0].split('-')[1])
@@ -385,6 +382,11 @@ Try:
         dateobj = datetime.datetime(year,month,day,hour,minute,second)
         time = cdftime.date2num(dateobj)
         times[i] = rountd(time*3600)
+        
+        timeseries[i]=i+1
+        lon[i] = longitude
+        lat[i] = latitude
+        z[i] = verticalPosition
     
         obs1[i] = data[i][2]
         obs2[i] = data[i][3]
