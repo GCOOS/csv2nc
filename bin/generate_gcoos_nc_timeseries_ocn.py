@@ -57,7 +57,7 @@ period  = '2015_11'
 # but listed here abbreviated and for demonstration purposes only (e.g.
 # this station reads data .
 
-urn               = 'ioos:station:DISL:BSCA'
+urn               = 'urn:ioos:station:DISL:BSCA'
 url               = 'http://www.mobilebaynep.com/'
 description       = 'BSCA: Station Bon Secour, LA'
 naming            = 'ioos:station:DISL'
@@ -464,9 +464,6 @@ try:
     ('sea_water_temperature','f8'),('sea_water_turbidity','f8'),\
     ('depth','f8')],delimiter=",",skip_header=1)
     
-    lon[:]               = longitude
-    lat[:]               = latitude
-    
     for i in range(0,timeseries_length):
         year   = int(data[i][0].split('-')[0])
         month  = int(data[i][0].split('-')[1])
@@ -476,12 +473,13 @@ try:
         second = int(data[i][1].split(':')[2])
     
         dateobj = datetime.datetime(year,month,day,hour,minute,second)
-    
         time = cdftime.date2num(dateobj)
-    
         times[i] = round(time*3600)
-        z[i] = data[i][13]
-    
+        timeseries[i]=i+1
+        lon[i]=longitude
+        lat[i]=latitude
+        z[i] = data[i][2]
+
         obs1[i] = data[i][2]
         obs2[i] = data[i][3]
         obs3[i] = data[i][4]
