@@ -45,7 +45,7 @@ cdftime = utime('hours since 1970-01-01 00:00:00')
 
 out_path = ''
 in_path = ''                   
-prefix  = 'gcoos_ioos_station_DISL_BSCA_2015_06_atm'
+prefix  = 'gcoos_ioos_station_DISL_BSCA_2015_05_atm'
 infiles = in_path+prefix+'.csv'
 outfile = out_path+prefix+'.nc'
 hdrfile = in_path+prefix+'.hdr'
@@ -53,7 +53,7 @@ period  = '2015_06'
 
 # the following will be extracted from a header file
 # (prefix+'.hdr') but listed here for demonstration purposes only.
-
+organization      = 'Dauphin Island Sea Laboratory (DISL)'
 urn               = 'urn:ioos:station:DISL:BSCA'
 url               = 'http://www.mymobilebay.com/stationdata/StationInfo.asp?jday=&property=&chartyear=&StationID=106'
 description       = 'Station Bon Secour, LA'
@@ -65,6 +65,8 @@ latitude          = 30.3288
 longitude         =-87.8293
 verticalPosition  = 3.0
 timeseries_length = 880
+urnSensor1        = 'urn:ioos:station:DISL:BSCA:airPressure1'
+urnSensor2        = 'urn:ioos:station:DISL:BSCA:airTemperature1'
 
 ##########################################################################
 
@@ -83,8 +85,9 @@ Try:
     nc.featureType              = 'timeSeries'
     nc.title                    = 'GCOOS netCDF Data for '+urn+' for the period '+period
     nc.summary                  = period+' time series data for '+urn+' platform served via GCOOS Data Portal. The uuid was generated using the uuid python module, invoking the command uuid.uuid4().'
-    nc.keywords                 = 'GCOOS,ocean observing,sensors'
-    nc.Conventions              = 'CF Standard Name Table v26, GCMD Earth Science Keywords. Version 5.3.3'
+    nc.keywords                 = 'EARTH SCIENCE>OCEANS>OCEAN CIRCULATION>OCEAN CURRENTS,EARTH SCIENCE>TERRESTRIAL HYDROSPHERE>WATER QUALITY/WATER CHEMISTRY>CHLOROPHYLL,EARTH SCIENCE>OCEANS>OCEAN CHEMISTRY>OXYGEN,EARTH SCIENCE>OCEANS>COASTAL PROCESSES>SEA SURFACE HEIGHT,EARTH SCIENCE>OCEANS>SEA SURFACE TOPOGRAPHY>SEA SURFACE HEIGHT,EARTH SCIENCE>OCEANS>SALINITY/DENSITY>SALINITY,EARTH SCIENCE>OCEANS>OCEAN TEMPERATURE>WATER TEMPERATURE'
+    nc.keywords_vocabulary      = 'GCMD Science Keywords Version 8.1'
+    nc.Conventions              = 'CF1.6, ACDD-1.3'
     # the filename is a unique identification and will be used as the file id
     nc.id                       = prefix
     nc.naming_authority         = naming
@@ -95,13 +98,13 @@ Try:
     nc.comment                  = 'Data generated from GCOOS tables.'
     nc.acknowledment            = ''
     nc.license                  = 'Creative Common (CC) 0'
-    nc.standard_name_vocabulary = 'CF Standard Name Table v26'
+    nc.standard_name_vocabulary = 'CF Standard Name Table v33'
     nc.date_ceated              = 'Created:'+dt
-    nc.creator_name             = 'Felimon Gayanilo'
-    nc.creator_email            = 'felimon.gayanilo@gcoos.org'
-    nc.creator_url              = 'https://www.linkedin.com/in/felimon-gayanilo-56728418'
+    nc.creator_name             = '<your name here>'
+    nc.creator_email            = '<your official email here>'
+    nc.creator_url              = '<your official URL here>'
     nc.institution              = 'Gulf of Mexico Coastal Ocean Observing System (GCOOS)'
-    nc.project                  = ''
+    nc.project                  = 'Gulf of Mexico Coastal Ocean Observing System (GCOOS)'
     nc.publisher_name           = 'Gulf of Mexico Coastal Ocean Observing System (GCOOS)'
     nc.publisher_email          = 'info@gcoos.org'
     nc.publisher_url            = 'data.gcoos.org'
@@ -120,14 +123,15 @@ Try:
     #nc.time_coverage_duration   = ''
     #nc.time_coverage_resolution = ''
     nc.uuid                     = str(uuid.uuid4())
-    nc.sea_name                 = 'Gulf of Mexico, United States of America'
+    nc.sea_name                 = 'Gulf of Mexico'
     nc.creator_type             = 'institution'
     nc.creator_institution      = 'Gulf of Mexico Coastal Ocean Observing System (GCOOS)'
     nc.publisher_type           = 'institution'
     nc.publisher_institution    = 'Gulf of Mexico Coastal Ocean Observing System (GCOOS)'
+    nc.institution              = 'Texas A&M University'
     nc.program                  = 'NOAA IOOS'
-    nc.contributor_name         = ''
-    nc.contributor_role         = ''
+    nc.contributor_name         = organization
+    nc.contributor_role         = 'Local Data Node'
     nc.geospatial_lat_units     = 'degrees_north' 
     nc.geospatial_lon_units     = 'degrees_east'
     nc.geospatial_vertical_units = 'EPSG:4979'
@@ -136,9 +140,9 @@ Try:
     nc.date_metadata_modified   = dt
     nc.product_version          = 'Ver. 1.0'
     nc.platform                 = urn
-    nc.platform_vocabulary      = 'CF Standard Name Table v26, GCMD Earth Science Keywords. Version 5.3.3'
+    nc.platform_vocabulary      = 'CF Standard Name Table v33, GCMD Earth Science Keywords. Version 8.1'
     nc.instrument               = ''
-    nc.instrument_vocabulary    = 'CF Standard Name Table v26, GCMD Earth Science Keywords. Version 5.3.3'
+    nc.instrument_vocabulary    = 'GCMD Earth Science Keywords. Version 8.1'
     nc.cdm_data_type            = 'Station'
     nc.metadata_link            = ''
     nc.references               = ''
@@ -191,17 +195,49 @@ Try:
     z.ancillary_variables       = ""
     z.comment                   = ""
     
-    instrument                 = nc.createVariable('instrument','c',('timeSeries'))
-    instrument.long_name       = instrument
-    instrument.comment         = instrument_desc
+    # create a loop to define all the instruments in the platform, assumed here to have only one sensor of each type
+    instrument                        = nc.createVariable('instrument1','c',())
+    instrument.long_name              = 'Air Pressure Sensor'
+    instrument.instrument_vocabulary  = 'GCMD Science Keywords Version 8.1'
+
+    #instrument.make_model             = ''
+    #instrument.serial_number          = ''
+    #instrument.calibration_date       = ''
+    #instrument.factory_calibrated     = ''
+    #instrument.user_calibrated        = ''
+    #instrument.calibration_report     = ''
+    #instrument.accuracy               = ''
+    #instrument.valid_range            = ''
+    #instrument.precision              = ''
+    #instrument.comment                = ''
+    instrument.ioos_code              = urnSensor1
+    
+    instrument                        = nc.createVariable('instrument2','c',())
+    instrument.long_name              = 'Thermometers'
+    instrument.instrument_vocabulary  = 'GCMD Science Keywords Version 8.1'
+
+    #instrument.make_model             = ''
+    #instrument.serial_number          = ''
+    #instrument.calibration_date       = ''
+    #instrument.factory_calibrated     = ''
+    #instrument.user_calibrated        = ''
+    #instrument.calibration_report     = ''
+    #instrument.accuracy               = ''
+    #instrument.valid_range            = ''
+    #instrument.precision              = ''
+    #instrument.comment                = ''
+    instrument.ioos_code              = urnSensor2
+
+    # add all the all the rest of the sensors
     
     platform                    = nc.createVariable('platform','c',('timeSeries'))
-    platform.long_name          = urn,' ',description
+    platform.long_name          = description
     platform.comment            = ''
     platform.call_sign          = ''
     platform.ncei_code          = '147F, 3614'
     platform.wmo_code           = wmo
     platform.imo_code           = ''
+    platform.ioos_code          = urn
     
     crs                         = nc.createVariable('crs','i',())
     crs.grid_mapping_name       = 'latitude_longitude'
@@ -228,7 +264,7 @@ Try:
     obs1.cell_methods           = 'time: point lat: point lon: point'
     obs1.ancillary_variables    = 'instrument platform'
     obs1.platform               = 'platform'
-    obs1.instrument             = 'instrument'
+    obs1.instrument             = 'instrument1'
     obs1.comment                = ''
     
     obs2                        = nc.createVariable('air_temperature','d',('timeSeries'),fill_value=-999.)
@@ -250,7 +286,7 @@ Try:
     obs2.cell_methods           = 'time: point lat: point lon: point'
     obs2.ancillary_variables    = 'instrument platform'
     obs2.platform               = 'platform'
-    obs2.instrument             = 'instrument'
+    obs2.instrument             = 'instrument2'
     obs2.comment                = ''
     
     obs3                        = nc.createVariable('dew_point_temperature','d',('timeSeries'),fill_value=-999.)
@@ -272,7 +308,7 @@ Try:
     obs3.cell_methods           = 'time: point lat: point lon: point'
     obs3.ancillary_variables    = 'instrument platform'
     obs3.platform               = 'platform'
-    obs3.instrument             = 'instrument'
+    obs3.instrument             = 'instrument3'
     obs3.comment                = ''
     
     obs4                        = nc.createVariable('relative_humidity','d',('timeSeries'),fill_value=-999.)
@@ -294,7 +330,7 @@ Try:
     obs4.cell_methods           = 'time: point lat: point lon: point'
     obs4.ancillary_variables    = 'instrument platform'
     obs4.platform               = 'platform'
-    obs4.instrument             = 'instrument'
+    obs4.instrument             = 'instrument4'
     obs4.comment                = ''
     
     obs5                        = nc.createVariable('wind_speed','d',('timeSeries'),fill_value=-999.)
@@ -316,7 +352,7 @@ Try:
     obs5.cell_methods           = 'time: point lat: point lon: point'
     obs5.ancillary_variables    = 'instrument platform'
     obs5.platform               = 'platform'
-    obs5.instrument             = 'instrument'
+    obs5.instrument             = 'instrument5'
     obs5.comment                = ''
     
     obs6                        = nc.createVariable('wind_speed_of_gust','d',('timeSeries'),fill_value=-999.)
@@ -338,7 +374,7 @@ Try:
     obs6.cell_methods           = 'time: point lat: point lon: point'
     obs6.ancillary_variables    = 'instrument platform'
     obs6.platform               = 'platform'
-    obs6.instrument             = 'instrument'
+    obs6.instrument             = 'instrument6'
     obs6.comment                = ''
     
     obs7                        = nc.createVariable('wind_to_direction','d',('timeSeries'),fill_value=-999.)
@@ -360,7 +396,7 @@ Try:
     obs7.cell_methods           = 'time: point lat: point lon: point'
     obs7.ancillary_variables    = 'instrument platform'
     obs7.platform               = 'platform'
-    obs7.instrument             = 'instrument'
+    obs7.instrument             = 'instrument7'
     obs7.comment                = ''
     
     # Read/Write the data matrix from a CSV file
