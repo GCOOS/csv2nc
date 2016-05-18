@@ -3,7 +3,7 @@ Routines to convert GCOOS CSV files as generated from the GCOOS WAF (http://data
 
 Other links of interest includes:
 
-*CF v33: http://cfconventions.org/Data/cf-standard-names/33/src/cf-standard-name-table.xml
-*GCMD Science Keywords v. 8.1: http://gcmd.nasa.gov/learn/keyword_list.html
-*ACDD 1.3: http://wiki.esipfed.org/index.php/Attribute_Convention_for_Data_Discovery_1-3
+* CF v33: http://cfconventions.org/Data/cf-standard-names/33/src/cf-standard-name-table.xml
+* GCMD Science Keywords v. 8.1: http://gcmd.nasa.gov/learn/keyword_list.html
+* ACDD 1.3: http://wiki.esipfed.org/index.php/Attribute_Convention_for_Data_Discovery_1-3
 
