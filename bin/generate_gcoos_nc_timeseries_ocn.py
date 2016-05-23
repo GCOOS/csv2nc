@@ -85,8 +85,8 @@ try:
     nc.featureType              = 'timeSeries'
     nc.title                    = 'GCOOS netCDF Data for '+urn+' for the period '+period
     nc.summary                  = '2016-11 time series data for '+urn+' platform served via GCOOS Data Portal. The uuid was generated using the uuid python module, invoking the command uuid.uuid4().'
-    nc.keywords                 = 'GCOOS,ocean observing,sensors'
-    nc.Conventions              = 'CF Standard Name Table v26, GCMD Earth Science Keywords. Version 5.3.3'
+    nc.keywords                 = ''EARTH SCIENCE>OCEANS>OCEAN CIRCULATION>OCEAN CURRENTS,EARTH SCIENCE>TERRESTRIAL HYDROSPHERE>WATER QUALITY/WATER CHEMISTRY>CHLOROPHYLL,EARTH SCIENCE>OCEANS>OCEAN CHEMISTRY>OXYGEN,EARTH SCIENCE>OCEANS>COASTAL PROCESSES>SEA SURFACE HEIGHT,EARTH SCIENCE>OCEANS>SEA SURFACE TOPOGRAPHY>SEA SURFACE HEIGHT,EARTH SCIENCE>OCEANS>SALINITY/DENSITY>SALINITY,EARTH SCIENCE>OCEANS>OCEAN TEMPERATURE>WATER TEMPERATURE''
+    nc.Conventions              = 'CF Standard Name Table v33, GCMD Earth Science Keywords. Version 8.1'
     # the filename is a unique identification and will be used as the file id
     nc.id                       = prefix
     nc.naming_authority         = naming
