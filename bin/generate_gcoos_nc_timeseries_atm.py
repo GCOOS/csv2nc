@@ -85,7 +85,7 @@ Try:
     nc.featureType              = 'timeSeries'
     nc.title                    = 'GCOOS netCDF Data for '+urn+' for the period '+period
     nc.summary                  = period+' time series data for '+urn+' platform served via GCOOS Data Portal. The uuid was generated using the uuid python module, invoking the command uuid.uuid4().'
-    nc.keywords                 = 'EARTH SCIENCE>OCEANS>OCEAN CIRCULATION>OCEAN CURRENTS,EARTH SCIENCE>TERRESTRIAL HYDROSPHERE>WATER QUALITY/WATER CHEMISTRY>CHLOROPHYLL,EARTH SCIENCE>OCEANS>OCEAN CHEMISTRY>OXYGEN,EARTH SCIENCE>OCEANS>COASTAL PROCESSES>SEA SURFACE HEIGHT,EARTH SCIENCE>OCEANS>SEA SURFACE TOPOGRAPHY>SEA SURFACE HEIGHT,EARTH SCIENCE>OCEANS>SALINITY/DENSITY>SALINITY,EARTH SCIENCE>OCEANS>OCEAN TEMPERATURE>WATER TEMPERATURE'
+    nc.keywords                 = 'EARTH SCIENCE>ATMOSPHERE>ATMOSPHERIC PRESSURE>ATMOSPHERIC PRESSURE MEASUREMENTS,EARTH SCIENCE>ATMOSPHERE>ATMOSPHERIC TEMPERATURE>SURFACE TEMPERATURE>AIR TEMPERATURE'
     nc.keywords_vocabulary      = 'GCMD Science Keywords Version 8.1'
     nc.Conventions              = 'CF1.6, ACDD-1.3'
     # the filename is a unique identification and will be used as the file id
@@ -100,9 +100,9 @@ Try:
     nc.license                  = 'Creative Common (CC) 0'
     nc.standard_name_vocabulary = 'CF Standard Name Table v33'
     nc.date_ceated              = 'Created:'+dt
-    nc.creator_name             = '<your name here>'
-    nc.creator_email            = '<your official email here>'
-    nc.creator_url              = '<your official URL here>'
+    nc.creator_name             = 'Felimon Gayanilo'
+    nc.creator_email            = 'felimon.gayanilo@gcoos.org'
+    nc.creator_url              = ''
     nc.institution              = 'Gulf of Mexico Coastal Ocean Observing System (GCOOS)'
     nc.project                  = 'Gulf of Mexico Coastal Ocean Observing System (GCOOS)'
     nc.publisher_name           = 'Gulf of Mexico Coastal Ocean Observing System (GCOOS)'
@@ -288,125 +288,16 @@ Try:
     obs2.platform               = 'platform'
     obs2.instrument             = 'instrument2'
     obs2.comment                = ''
-    
-    obs3                        = nc.createVariable('dew_point_temperature','d',('timeSeries'),fill_value=-999.)
-    obs3.long_name              = 'dew_point_temperature'
-    obs3.standard_name          = 'dew_point_temperature'
-    obs3.ncei_name              = 'dew_point_temperature'
-    obs3.units                  = 'Celsius'
-    obs3.scale_factor           = 1.
-    obs3.add_offset             = 0.
-    #obs3._FillValue             = fill_value=-999.
-    obs3.missing_value          = -999.
-    obs3.valid_min              = -10.
-    obs3.valid_max              = 40.
-    obs3.coordinates            = 'time lat lon'
-    obs3.coverage_content_type  = 'physicalMeasurement'
-    obs3.grid_mapping           = 'crs'
-    obs3.source                 = 'GCOOS LDN upload/SOS.'
-    obs3.references             = url
-    obs3.cell_methods           = 'time: point lat: point lon: point'
-    obs3.ancillary_variables    = 'instrument platform'
-    obs3.platform               = 'platform'
-    obs3.instrument             = 'instrument3'
-    obs3.comment                = ''
-    
-    obs4                        = nc.createVariable('relative_humidity','d',('timeSeries'),fill_value=-999.)
-    obs4.long_name              = 'relative humidity'
-    obs4.standard_name          = 'relative_humidity'
-    obs4.ncei_name              = 'relative_humidity'
-    obs4.units                  = '%'
-    obs4.scale_factor           = 1.
-    obs4.add_offset             = 0.
-    #obs4._FillValue             = fill_value=-999.
-    obs4.missing_value          = -999.
-    obs4.valid_min              = 0.
-    obs4.valid_max              = 105.
-    obs4.coordinates            = 'time lat lon'
-    obs4.coverage_content_type  = 'physicalMeasurement'
-    obs4.grid_mapping           = 'crs'
-    obs4.source                 = 'GCOOS LDN upload/SOS.'
-    obs4.references             = url
-    obs4.cell_methods           = 'time: point lat: point lon: point'
-    obs4.ancillary_variables    = 'instrument platform'
-    obs4.platform               = 'platform'
-    obs4.instrument             = 'instrument4'
-    obs4.comment                = ''
-    
-    obs5                        = nc.createVariable('wind_speed','d',('timeSeries'),fill_value=-999.)
-    obs5.long_name              = 'wind speed'
-    obs5.standard_name          = 'wind_speed'
-    obs5.ncei_name              = 'wind_speed'
-    obs5.units                  = 'm s-1'
-    obs5.scale_factor           = 1.
-    obs5.add_offset             = 0.
-    #obs5._FillValue             = fill_value=-999.
-    obs5.missing_value          = -999.
-    obs5.valid_min              = 0.
-    obs5.valid_max              = 150.
-    obs5.coordinates            = 'time lat lon'
-    obs5.coverage_content_type  = 'physicalMeasurement'
-    obs5.grid_mapping           = 'crs'
-    obs5.source                 = 'GCOOS LDN upload/SOS.'
-    obs5.references             = url
-    obs5.cell_methods           = 'time: point lat: point lon: point'
-    obs5.ancillary_variables    = 'instrument platform'
-    obs5.platform               = 'platform'
-    obs5.instrument             = 'instrument5'
-    obs5.comment                = ''
-    
-    obs6                        = nc.createVariable('wind_speed_of_gust','d',('timeSeries'),fill_value=-999.)
-    obs6.long_name              = 'wind speed of gust'
-    obs6.standard_name          = 'wind_speed_of_gust'
-    obs6.ncei_name              = 'wind_speed_of_gust'
-    obs6.units                  = 'm s-1'
-    obs6.scale_factor           = 1.
-    obs6.add_offset             = 0.
-    #obs6._FillValue             = fill_value=-999.
-    obs6.missing_value          = -999.
-    obs6.valid_min              = 0.
-    obs6.valid_max              = 250.
-    obs6.coordinates            = 'time lat lon'
-    obs6.coverage_content_type  = 'physicalMeasurement'
-    obs6.grid_mapping           = 'crs'
-    obs6.source                 = 'GCOOS LDN upload/SOS.'
-    obs6.references             = url
-    obs6.cell_methods           = 'time: point lat: point lon: point'
-    obs6.ancillary_variables    = 'instrument platform'
-    obs6.platform               = 'platform'
-    obs6.instrument             = 'instrument6'
-    obs6.comment                = ''
-    
-    obs7                        = nc.createVariable('wind_to_direction','d',('timeSeries'),fill_value=-999.)
-    obs7.long_name              = 'wind to direction'
-    obs7.standard_name          = 'wind_to_direction'
-    obs7.ncei_name              = 'wind_to_direction'
-    obs7.units                  = 'degrees_true'
-    obs7.scale_factor           = 1.
-    obs7.add_offset             = 0.
-    #obs7._FillValue             = fill_value=-999.
-    obs7.missing_value          = -999.
-    obs7.valid_min              = 0.
-    obs7.valid_max              = 360.
-    obs7.coordinates            = 'time lat lon'
-    obs7.coverage_content_type  = 'physicalMeasurement'
-    obs7.grid_mapping           = 'crs'
-    obs7.source                 = 'GCOOS LDN upload/SOS.'
-    obs7.references             = url
-    obs7.cell_methods           = 'time: point lat: point lon: point'
-    obs7.ancillary_variables    = 'instrument platform'
-    obs7.platform               = 'platform'
-    obs7.instrument             = 'instrument7'
-    obs7.comment                = ''
-    
+
     # Read/Write the data matrix from a CSV file
     
     data = np.genfromtxt(infiles,dtype=[('date','S10'),('time','S8'),\
-    ('air_pressure','f8'),('air_temperature','f8'),('dew_point_temperature','f8'),\
-    ('relative_humidity','f8'),('wind_speed','f8'),('wind_speed_of_gust','f8'),\
-    ('wind_to_direction','f8')],delimiter=",",skip_header=1)
+    ('air_pressure','f8'),('air_temperature','f8')],delimiter=",",skip_header=1)
     
-
+    z[:]=verticalPosition
+    lat[:]=latitude
+    lon[:]=longitute
+    
     for i in range(0,timeseries_length):
         year   = int(data[i][0].split('-')[0])
         month  = int(data[i][0].split('-')[1])
@@ -418,20 +309,11 @@ Try:
         dateobj = datetime.datetime(year,month,day,hour,minute,second)
         time = cdftime.date2num(dateobj)
         times[i] = rountd(time*3600)
-        
         timeseries[i]=i+1
-        lon[i] = longitude
-        lat[i] = latitude
-        z[i] = verticalPosition
-    
+
         obs1[i] = data[i][2]
         obs2[i] = data[i][3]
-        obs3[i] = data[i][4]
-        obs4[i] = data[i][5]
-        obs5[i] = data[i][6]
-        obs6[i] = data[i][7]
-        obs7[i] = data[i][8]
-    
+
     nc.close()
 except:
     print "Error in file: "+outfile+". \n"
