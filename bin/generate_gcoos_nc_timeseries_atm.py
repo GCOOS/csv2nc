@@ -4,7 +4,7 @@
 
 #  Module      : generate_gcoos_nc_timeseries_atm.py
 #  Author      : Felimon Gayanilo (felimon.gayanilo@gcoos.org)
-#  Last update : 22 February 2016
+#  Last update : 23 May 2016
 
 #  Required    : numpy,netCDF4,netcdftime,sys,uuid,datetime
 #  Usage       : generate_gcoos_nc_timeseries_atm.py
@@ -103,7 +103,6 @@ Try:
     nc.creator_name             = 'Felimon Gayanilo'
     nc.creator_email            = 'felimon.gayanilo@gcoos.org'
     nc.creator_url              = ''
-    nc.institution              = 'Gulf of Mexico Coastal Ocean Observing System (GCOOS)'
     nc.project                  = 'Gulf of Mexico Coastal Ocean Observing System (GCOOS)'
     nc.publisher_name           = 'Gulf of Mexico Coastal Ocean Observing System (GCOOS)'
     nc.publisher_email          = 'info@gcoos.org'
@@ -161,7 +160,7 @@ Try:
     times.ancillary_variables   = ''
     times.comment               = ''
     
-    lat                         = nc.createVariable('lat','d',('timeSeries'))
+    lat                         = nc.createVariable('lat','d',())
     lat.long_name               = 'Latitude'
     lat.standard_name           = 'latitude'
     lat.units                   = 'degrees_north'
@@ -172,7 +171,7 @@ Try:
     lat.ancillary_variables     = ''
     lat.comment                 = ''
     
-    lon                         = nc.createVariable('lon','d',('timeSeries'))
+    lon                         = nc.createVariable('lon','d',())
     lon.long_name               = 'Longitude'
     lon.standard_name           = 'longitude'
     lon.units                   = 'degrees_east'
@@ -183,7 +182,7 @@ Try:
     lon.ancillary_variables     = ''
     lon.comment                 = ''
     
-    z                           = nc.createVariable('z','d',('timeSeries'),fill_value=-999.)
+    z                           = nc.createVariable('z','d',(),fill_value=-999.)
     z.long_name                 = "Altitude"
     z.standard_name             = "altitude"
     z.units                     = "m"
@@ -252,7 +251,6 @@ Try:
     obs1.units                  = 'mbar'
     obs1.scale_factor           = 1.
     obs1.add_offset             = 0.
-    #obs1._FillValue             = fill_value=-999.
     obs1.missing_value          = -999.
     obs1.valid_min              = 700.
     obs1.valid_max              = 1040.
@@ -274,7 +272,6 @@ Try:
     obs2.units                  = 'Celsius'
     obs2.scale_factor           = 1.
     obs2.add_offset             = 0.
-    #obs2._FillValue             = fill_value=-999.
     obs2.missing_value          = -999.
     obs2.valid_min              = -10.
     obs2.valid_max              = 40.
@@ -311,6 +308,7 @@ Try:
         times[i] = rountd(time*3600)
         timeseries[i]=i+1
 
+        # modified for this example; does not correspond with example CSV file
         obs1[i] = data[i][2]
         obs2[i] = data[i][3]
 
