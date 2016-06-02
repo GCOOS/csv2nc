@@ -70,8 +70,8 @@ longitude         =-87.8293
 verticalPosition  = 0.
 timeseries_length = 640
 
-urnSensor1        = 'urn:ioos:station:DISL:BSCA:salinity1'
-urnSensor2        = 'urn:ioos:station:DISL:BSCA:waterTemperature1'
+urnSensor1        = 'urn:ioos:station:DISL:BSCA:salinity:1'
+urnSensor2        = 'urn:ioos:station:DISL:BSCA:sea_water_temperature:1'
 
 ##########################################################################
 
@@ -211,7 +211,6 @@ try:
     #instrument.valid_range            = ''
     #instrument.precision              = ''
     #instrument.comment                = ''
-    instrument.ioos_code              = urnSensor1
 
     instrument                        = nc.createVariable('instrument2','c',())
     instrument.long_name              = 'TEMPERATURE SENSORS'
@@ -226,7 +225,6 @@ try:
     #instrument.valid_range            = ''
     #instrument.precision              = ''
     #instrument.comment                = ''
-    instrument.ioos_code              = urnSensor2
     
     platform                    = nc.createVariable('platform','c',('timeSeries'))
     platform.long_name          = description
@@ -261,6 +259,7 @@ try:
     obs1.cell_methods           = 'time: point lat: point lon: point z: point'
     obs1.ancillary_variables    = 'instrument platform'
     obs1.platform               = 'platform'
+    obs1.ioos_code              = urnSensor1
     obs1.instrument             = 'instrument1'
     obs1.comment                = ''
     
@@ -282,7 +281,8 @@ try:
     obs2.cell_methods           = 'time: point lat: point lon: point z: point'
     obs2.ancillary_variables    = 'instrument platform'
     obs2.platform               = 'platform'
-    obs2.instrument             = 'instrument2'
+    obs2.instrument             = 'instrument1'
+    obs2.ioos_code              = urnSensor2
     obs2.comment                = ''
 
     # Read/Write the data matrix from a CSV file
