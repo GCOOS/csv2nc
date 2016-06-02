@@ -65,9 +65,10 @@ latitude          = 30.3288
 longitude         =-87.8293
 verticalPosition  = 3.0
 timeseries_length = 880
-urnSensor1        = 'urn:ioos:station:DISL:BSCA:airPressure1'
-urnSensor2        = 'urn:ioos:station:DISL:BSCA:airTemperature1'
-
+urnInstrument1        = 'urn:ioos:station:DISL:BSCA:barometer:1'
+urnInstrument2        = 'urn:ioos:station:DISL:BSCA:thermometer:1'
+urnSensor1            = 'urn:ioos:station:DISL:BSCA:air_pressure:1
+urnSensor2            = 'urn:ioos:station:DISL:BSCA:air_temperature:1
 ##########################################################################
 
 file = outfile
@@ -263,6 +264,7 @@ Try:
     obs1.ancillary_variables    = 'instrument platform'
     obs1.platform               = 'platform'
     obs1.instrument             = 'instrument1'
+    obs1.ioos_code              = urnSensor1
     obs1.comment                = ''
     
     obs2                        = nc.createVariable('air_temperature','d',('timeSeries'),fill_value=-999.)
@@ -284,6 +286,7 @@ Try:
     obs2.ancillary_variables    = 'instrument platform'
     obs2.platform               = 'platform'
     obs2.instrument             = 'instrument2'
+    obs2.ioos_code              = urnSensor2
     obs2.comment                = ''
 
     # Read/Write the data matrix from a CSV file
