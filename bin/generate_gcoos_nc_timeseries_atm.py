@@ -65,8 +65,7 @@ latitude          = 30.3288
 longitude         =-87.8293
 verticalPosition  = 3.0
 timeseries_length = 880
-urnInstrument1        = 'urn:ioos:station:DISL:BSCA:barometer:1'
-urnInstrument2        = 'urn:ioos:station:DISL:BSCA:thermometer:1'
+
 urnSensor1            = 'urn:ioos:station:DISL:BSCA:air_pressure:1
 urnSensor2            = 'urn:ioos:station:DISL:BSCA:air_temperature:1
 ##########################################################################
@@ -210,7 +209,6 @@ Try:
     #instrument.valid_range            = ''
     #instrument.precision              = ''
     #instrument.comment                = ''
-    instrument.ioos_code              = urnSensor1
     
     instrument                        = nc.createVariable('instrument2','c',())
     instrument.long_name              = 'Thermometers'
@@ -226,7 +224,6 @@ Try:
     #instrument.valid_range            = ''
     #instrument.precision              = ''
     #instrument.comment                = ''
-    instrument.ioos_code              = urnSensor2
 
     # add all the all the rest of the sensors
     
